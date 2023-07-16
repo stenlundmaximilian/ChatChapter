@@ -1,0 +1,15 @@
+table{
+    position: relative;
+    top: 20vh;
+    left: 50%;
+    transform: translate(-50%,0);
+    border-collapse: collapse;
+    width: 50%;
+    background-color: white;
+}
+
+td, th{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}

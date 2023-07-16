@@ -1,0 +1,10 @@
+<nav>
+    <a href="/"><img src = "/images/Chatbooks_logo.jpeg"></a>
+    <div class="nav-links">
+        <ul>
+            <% for (const item of headerLinks) { %>
+                <li><a href="<%= item.file %>"><%= item.text %></a></li>
+            <% } %>
+        </ul>
+    </div>
+</nav>
