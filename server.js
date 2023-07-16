@@ -52,7 +52,7 @@ app.use(methodOverride('_method'))
 app.use('/',indexRouter)
 app.use('/characters',characterRouter)
 app.use('/templates',templateRouter)
-app.use('/login',loginRouter)
+app.use('/login',loginRouter(passport))
 app.use('/register',registerRouter(users))
 
 app.listen(process.env.PORT || 3000)
