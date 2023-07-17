@@ -17,6 +17,7 @@ const characterRouter = require('./routes/characters')
 const templateRouter = require('./routes/templates')
 const loginRouter = require('./routes/login')
 const registerRouter = require('./routes/register')
+const logoutRouter = require('./routes/logout')
 
 //import function to initialize passport
 const initializePassport = require('./models/passportConfig')
@@ -54,5 +55,6 @@ app.use('/characters',characterRouter)
 app.use('/templates',templateRouter)
 app.use('/login',loginRouter(passport))
 app.use('/register',registerRouter(users))
+app.use('/logout',logoutRouter)
 
 app.listen(process.env.PORT || 3000)

@@ -3,12 +3,14 @@ const bcrypt = require('bcrypt')
 
 const router = express.Router()
 
-router.get('/',(req,res)=>{
-    res.render('register/index',{headerLinks:[]})
-})
+const checkNotAuthenticated = require('../models/checkAuthentication').checkNotAuthenticated
 
 module.exports = (users) => {
-    router.post('/', async (req, res) => {
+    router.get('/',checkNotAuthenticated,(req,res)=>{
+      res.render('register/index',{headerLinks:[]})
+    })
+
+    router.post('/',checkNotAuthenticated, async (req, res) => {
       try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
         users.push({
@@ -23,4 +25,4 @@ module.exports = (users) => {
       }
     });
     return router;
-  };
+};
