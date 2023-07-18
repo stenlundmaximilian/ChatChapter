@@ -2,26 +2,47 @@ const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
 
 function initialize(passport, getUserByEmail,getUserById){
+
     const authenticateUser = async (email,password,done)=>{
-        const user = getUserByEmail(email)
-        if(user == null){
-            return done(null,false,{message: 'No user with that email'})
-        }
-        try{
-            if (await bcrypt.compare(password, user.password)){
-                return done(null,user)
-            } else{
-                return done(null,false,{message: 'Password incorrect'})
+        (async () => {
+            try {
+                const user = await getUserByEmail(email);
+                if (user) {
+                    console.log('User found:', user);
+                } else {
+                    console.log('User not found.');
+                    return done(null,false,{message: 'No user with that email'})
+                }
+                if (await bcrypt.compare(password, user.password)){
+                    return done(null,user)
+                } else{
+                        return done(null,false,{message: 'Password incorrect'})
+                }
+            } catch (error) {
+              console.error('Error:', error);
+              return done(error)
             }
-        } catch(e){
-            return done(e)
-        }
+        })()
     }
     passport.use(new LocalStrategy({usernameField: 'email'},
     authenticateUser))
     passport.serializeUser((user,done)=> done(null,user.id))
     passport.deserializeUser((id,done)=>{
-        return done(null,getUserById(id))
+        (async () => {
+            try {
+              const user = await getUserById(id);
+              if (user) {
+                console.log('User found:', user);
+                return done(null,user)
+              } else {
+                console.log('User not found.');
+                return done(null,false)
+              }
+            } catch (error) {
+              console.error('Error:', error);
+              return done(error)
+            }
+        })()
     })
 
 }
