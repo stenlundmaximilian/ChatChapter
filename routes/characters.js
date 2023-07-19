@@ -23,7 +23,8 @@ router.post('/',checkAuthenticated,async (req, res) => {
         const character = new Character({
             name: req.body.name,
             hobby: req.body.hobby,
-            trait: req.body.trait
+            trait: req.body.trait,
+            createdBy: req.user._id
         })
         const newCharacter = await character.save()
         res.redirect('/characters')

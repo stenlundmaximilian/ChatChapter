@@ -8,6 +8,10 @@ const characterSchema = new mongoose.Schema({
     },
     trait:{
         type: String
+    },
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 })
 
