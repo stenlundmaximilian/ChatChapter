@@ -12,7 +12,7 @@
             <td><%= character.name %></td>
             <td><%= character.hobby %></td>
             <td><%= character.trait %></td>
-            <td><%= character._id %></td>
+            <td><%= String(character._id).slice(-3) %></td>
             <td>
                 <form action="characters/edit" method="GET">
                     <input type="hidden" name="name" value="<%= character.name %>">

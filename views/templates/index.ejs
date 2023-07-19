@@ -1,12 +1,20 @@
-<div class="text-box">
-    <h1>Pirate Adventure:</h1>
+<form action = "" method = "GET">
+    <h1>Pirate Adventure</h1>
     <div class="character">
-        <label for="character1">Character1:</label>
-        <select name="character1" id="character1"></select>
+        <label for="character1">Character1</label>
+        <select name="character1" id="character1">
+            <% characters.forEach((character) => { %>
+                <option value="<%= character._id %>"><%= character.name %> #<%=String(character._id).slice(-3)%></option>
+            <% }); %>
+        </select>
     </div>
     <div class="character">
-        <label for="character2">Character2:</label>
-        <select name="character2" id="character2"></select>
+        <label for="character2">Character2</label>
+        <select name="character2" id="character2">
+            <% characters.forEach((character) => { %>
+                <option value="<%= character._id %>"><%= character.name %> #<%=String(character._id).slice(-3)%></option>
+            <% }); %>
+        </select>
     </div>
-    <a href="generateText.html"><button id="generate-button" type = "button">Generate</button></a>
+    <button type = "submit">Generate</button>
 </div>
