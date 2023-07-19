@@ -39,4 +39,15 @@ router.post('/',checkAuthenticated,async (req, res) => {
     }
 });
 
+router.delete('/:id',async (req,res)=>{
+    try{
+        const characterIdToDelete = req.params.id
+        await Character.deleteOne({_id:characterIdToDelete})
+        res.redirect('/characters')
+    }
+    catch(error){
+        res.status(500).send('Error deleting character')
+    }
+})
+
 module.exports = router

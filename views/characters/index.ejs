@@ -9,12 +9,16 @@
     </tr>
     <% characters.forEach((character) => { %>
         <tr>
-          <td><%= character.name %></td>
-          <td><%= character.hobby %></td>
-          <td><%= character.trait %></td>
-          <td><%= character._id %></td>
-          <td>Edit</td> <!-- Add the appropriate link or button to edit the character -->
-          <td>Delete</td> <!-- Add the appropriate link or button to delete the character -->
+            <td><%= character.name %></td>
+            <td><%= character.hobby %></td>
+            <td><%= character.trait %></td>
+            <td><%= character._id %></td>
+            <td>Edit</td> <!-- Add the appropriate link or button to edit the character -->
+            <td>
+                <form action="characters/<%= character._id %>?_method=DELETE" method="POST">
+                    <button type="submit">DELETE</button>
+                </form>
+            </td> <!-- Add the appropriate link or button to delete the character -->
         </tr>
     <% }); %>
 </table>
