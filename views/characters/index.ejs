@@ -13,12 +13,20 @@
             <td><%= character.hobby %></td>
             <td><%= character.trait %></td>
             <td><%= character._id %></td>
-            <td>Edit</td> <!-- Add the appropriate link or button to edit the character -->
+            <td>
+                <form action="characters/edit" method="GET">
+                    <input type="hidden" name="name" value="<%= character.name %>">
+                    <input type="hidden" name="hobby" value="<%= character.hobby %>">
+                    <input type="hidden" name="trait" value="<%= character.trait %>">
+                    <input type="hidden" name="_id" value="<%= character._id %>">
+                    <button type="submit">EDIT</button>
+                </form>
+            </td> 
             <td>
                 <form action="characters/<%= character._id %>?_method=DELETE" method="POST">
                     <button type="submit">DELETE</button>
                 </form>
-            </td> <!-- Add the appropriate link or button to delete the character -->
+            </td>
         </tr>
     <% }); %>
 </table>

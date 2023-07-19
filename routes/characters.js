@@ -24,6 +24,21 @@ router.get('/new',checkAuthenticated,(req,res)=>{
     })
 })
 
+router.get('/edit',checkAuthenticated,(req,res)=>{
+    // Retrieve the data from the query parameters
+    const { name, hobby, trait, _id } = req.query
+    res.render('characters/edit',{
+        headerLinks:[{file:"/characters",
+                    text:"CHARACTER"}],
+        character:  {
+            name:name,
+            hobby:hobby,
+            trait:trait,
+            _id: _id
+        }
+    })
+})
+
 router.post('/',checkAuthenticated,async (req, res) => {
     try{
         const character = new Character({
@@ -38,6 +53,18 @@ router.post('/',checkAuthenticated,async (req, res) => {
         res.redirect('/characters/new')
     }
 });
+
+router.put('/:id',async (req,res)=>{
+    try{
+        const _id = req.params.id
+        const { name, hobby, trait} = req.body;
+        const updatedCharacter = await Character.findByIdAndUpdate(_id, { name, hobby, trait }, { new: true });
+        res.redirect('/characters')
+    }
+    catch(error){
+        res.status(500).send('Error editing character')
+    }
+})
 
 router.delete('/:id',async (req,res)=>{
     try{
