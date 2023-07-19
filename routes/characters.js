@@ -4,11 +4,17 @@ const Character = require('../models/character')
 
 const checkAuthenticated = require('../models/checkAuthentication').checkAuthenticated
 
-router.get('/',checkAuthenticated,(req,res)=>{
-    res.render('characters/index',{
-        headerLinks:[{file:"/characters/new",
-        text:"CREATE CHARACTER"}]
-    })
+router.get('/',checkAuthenticated,async(req,res)=>{
+    try{
+        const characters = await Character.find({createdBy:req.user._id})
+        res.render('characters/index',{
+            headerLinks:[{file:"/characters/new",
+                        text:"CREATE CHARACTER"}],
+            characters:characters
+        })
+    }catch(err){
+        console.error(err)
+    }
 })
 
 router.get('/new',checkAuthenticated,(req,res)=>{
