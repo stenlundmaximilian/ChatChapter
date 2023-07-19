@@ -1,9 +1,16 @@
-<div class="text-box">
+<form action = "/characters" method = "POST">
     <h1>Basic Character:</h1>
-    <form>
-        <p>Name: <input id="name-input" type = "text"></p>
-        <p>Hobby: <input id="hobby-input" type = "text"></p>
-        <p>Trait: <input id="trait-input" type = "text"></p>
-    </form>
-    <a href="charachters.html"><button id="save-button" type = "button">Save</button></a>
-</div>
+        <div>
+            <label for = "name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for = "hobby">Hobby</label>
+            <input type="text" id="hobby" name="hobby" required>
+        </div>
+        <div>
+            <label for = "trait">Trait</label>
+            <input type="text" id="trait" name="trait" required>
+        </div>
+        <button type="submit">Save</button>
+</form>
