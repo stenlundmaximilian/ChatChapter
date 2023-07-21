@@ -1,16 +1,18 @@
-<form action = "/characters/<%= character._id %>?_method=PUT" method = "POST">
-    <h1>Basic Character:</h1>
-        <div>
-            <label for = "name">Name</label>
-            <input type="text" id="name" name="name" value="<%=character.name%>" required>
-        </div>
-        <div>
-            <label for = "hobby">Hobby</label>
-            <input type="text" id="hobby" name="hobby" value="<%=character.hobby%>" required>
-        </div>
-        <div>
-            <label for = "trait">Trait</label>
-            <input type="text" id="trait" name="trait" value="<%=character.trait%>" required>
-        </div>
-        <button type="submit">Save</button>
-</form>
+<div class = "text-box">
+    <form action = "/characters/<%= character._id %>?_method=PUT" method = "POST">
+        <h1>Basic Character:</h1>
+            <div>
+                <label for = "name">Name</label>
+                <input type="text" id="name" name="name" value="<%=character.name%>" required>
+            </div>
+            <div>
+                <label for = "hobby">Hobby</label>
+                <input type="text" id="hobby" name="hobby" value="<%=character.hobby%>" required>
+            </div>
+            <div>
+                <label for = "trait">Trait</label>
+                <input type="text" id="trait" name="trait" value="<%=character.trait%>" required>
+            </div>
+            <button type="submit">Save</button>
+    </form>
+</div>
