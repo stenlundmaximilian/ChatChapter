@@ -1,1 +1,26 @@
-<pre><%= message %></pre>
+
+<pre id="message"></pre>
+<script>
+    async function generateMessage() {
+        try {
+            // Make an AJAX request to the server
+            const response = await fetch(`/templates/generateMessage?_id1=<%= _id1 %>&_id2=<%= _id2 %>`);
+            if (response.ok) {
+                // Get the message from the response
+                const message = await response.text();
+                // Display the message on the page
+                document.getElementById('message').textContent = message;
+            } else {
+                console.error('Error:', response.status, response.statusText);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    // Automatically trigger the message generation when the page loads
+    window.addEventListener('load', generateMessage);
+</script>
+
+
+

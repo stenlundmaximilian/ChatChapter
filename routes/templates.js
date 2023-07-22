@@ -17,16 +17,35 @@ router.get('/',checkAuthenticated,async(req,res)=>{
     }
 })
 
-router.get('/generate',checkAuthenticated,async (req,res)=>{
+router.get('/generate',checkAuthenticated,async(req,res)=>{
+    const _id1 = req.query.character1
+    const _id2 = req.query.character2
+    res.render('templates/generate',{
+        headerLinks:[],
+        _id1:_id1,
+        _id2:_id2
+        
+    })
+})
+
+router.get('/generateMessage',checkAuthenticated,async (req,res)=>{
     try{
-        const maxLength = 80;
-        const _id1 = req.query.character1
-        const _id2 = req.query.character2
+        const _id1 = req.query._id1;
+        const _id2 = req.query._id2;
         const character1 = await Character.findById(_id1)
         const character2 = await Character.findById(_id2)
+        const maxLength = 80;
         const message = await fetchData(process.env.API_KEY,character1,character2)
         const regex = new RegExp(`.{1,${maxLength}}`, 'g');
         const formatedMessage = message.match(regex).join('\n');
+        res.send(formatedMessage)
+    } catch(err){
+        console.error(err);
+    }
+})
+
+module.exports = router
+
         //const message = `
 //===============================
 //   Welcome to Console Page   
@@ -46,15 +65,3 @@ router.get('/generate',checkAuthenticated,async (req,res)=>{
 //
 //Thank you for visiting!
 //`    
-        console.log(message)
-        res.render('templates/generate',{
-            headerLinks:[],
-            message:formatedMessage
-
-        })
-    } catch(err){
-        console.error(err);
-    }
-})
-
-module.exports = router
