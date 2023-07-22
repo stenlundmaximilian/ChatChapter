@@ -11,6 +11,7 @@ const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
+const timeout = require('connect-timeout'); // Import the connect-timeout middleware
 
 //import routes
 const indexRouter = require('./routes/index')
@@ -52,8 +53,9 @@ initializePassport(
     getUserById
 )
 
-//const users = []
+//constants
 const User = require('./models/user')
+const SERVER_TIMEOUT_MS = 40000;
 
 //app set/use
 app.set('view engine', 'ejs')
@@ -76,6 +78,9 @@ app.use(methodOverride('_method'))
 //app set/use routes
 app.use('/',indexRouter)
 app.use('/characters',characterRouter)
+
+app.use('/templates/generateMessage', timeout(SERVER_TIMEOUT_MS));
+
 app.use('/templates',templateRouter)
 app.use('/login',loginRouter(passport))
 app.use('/register',registerRouter)
