@@ -9,13 +9,15 @@ async function fetchData(API_KEY,character1,character2){
             model: "gpt-3.5-turbo",
             temperature: 0.6,
             messages: [
-                {"role":"system", "content":"Generate short stories with the given information"},
-                {
-                    "role":"user",
-                    "content":`title:pirate adventure,\n
-                                character1:{name:${character1.name}, hobby:${character1.hobby}, trait:${character1.trait}},\n
-                                character2:{name:${character2.name}, hobby:${character2.hobby}, trait:${character2.trait}}`
-                }
+                {"role":"user", "content":"hi!"},
+
+                //{"role":"system", "content":"Generate short stories with the given information"},
+                //{
+                //    "role":"user",
+                //    "content":`title:pirate adventure,\n
+                //                character1:{name:${character1.name}, hobby:${character1.hobby}, trait:${character1.trait}},\n
+                //                character2:{name:${character2.name}, hobby:${character2.hobby}, trait:${character2.trait}}`
+                //}
             ]
         })
     })
