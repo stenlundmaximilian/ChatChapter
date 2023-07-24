@@ -2,6 +2,8 @@
 @import 'shared/header.css';
 @import 'shared/textBox.css';
 @import 'shared/table.css';
+@import 'shared/paragraphs.css';
+@import 'shared/loader.css';
 
 :root{
     font-family: 'Tektur';
@@ -23,27 +25,5 @@
     position: relative;
 }
 
-/*pre{
-    position: relative;
-    top: 20vh;
-    left: 50%;
-    transform: translate(-50%,0);
-    border-collapse: collapse;
-    display: inline-block;
-    width: auto;
-    background-color: white;
-    border: 2px solid black;
-}*/
-
-.paragraphs{
-    position: relative;
-    top: 20vh;
-    left: 50%;
-    transform: translate(-50%,0);
-    border-collapse: collapse;
-    width: 50%;
-    background-color: white;
-    padding: 5%;
-}
 
 

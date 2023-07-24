@@ -1,8 +1,14 @@
+<div class = "loader"></div>
 <script>
     async function generateMessage() {
         try {
             // Make an AJAX request to the server
-            const response = await fetch(`/templates/generateMessage?_id1=<%= _id1 %>&_id2=<%= _id2 %>`);
+            const response = await fetch(`/templates/generateMessage?_id1=<%= _id1 %>&_id2=<%= _id2 %>`)
+            const loader = document.querySelector(".loader")
+            loader.classList.add("loader-hidden")
+            loader.addEventListener("transitionend",()=>{
+                document.body.removeChild("loader")
+            })
             if (response.ok) {
                 // Get the message from the response
                 const paragraphs = await response.json();
