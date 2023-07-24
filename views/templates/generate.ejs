@@ -1,5 +1,3 @@
-
-<div id="paragraphs" class="paragraphs"></pre>
 <script>
     async function generateMessage() {
         try {
@@ -16,12 +14,18 @@
                     pElement.textContent = paragraph;
                     fragment.appendChild(pElement);
                 });
-                // Get the paragraphs container
-                const paragraphsContainer = document.getElementById("paragraphs");
-                // Clear any existing content
-                paragraphsContainer.innerHTML = "";
-                // Append the document fragment (with all <p> elements) to the container
-                paragraphsContainer.appendChild(fragment);
+
+                const paragraphsDiv = document.createElement('div');
+                paragraphsDiv.classList.add('paragraphs');
+
+                // Append the document fragment (with all <p> elements) to the paragraphs <div>
+                paragraphsDiv.appendChild(fragment);
+
+                // Get the container where you want to add the paragraphs div
+                const container = document.getElementById("view"); // Replace "container" with the actual ID of the desired container
+
+                // Append the paragraphs div to the container
+                container.appendChild(paragraphsDiv);
             } else {
                 console.error('Error:', response.status, response.statusText);
             }
