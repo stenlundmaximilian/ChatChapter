@@ -3,16 +3,8 @@
 <script>
     async function generateMessage() {
         try {
-            const CLIENT_TIMEOUT_MS = 40000;
-            const controller = new AbortController()
             // Make an AJAX request to the server
-            const response = await fetch(`/templates/generateMessage?_id1=<%= _id1 %>&_id2=<%= _id2 %>`,{
-                signal: controller.signal,
-            });
-
-            const timeoutId = setTimeout(() => {
-                controller.abort(); // Abort the fetch request when the timeout is reached
-            }, CLIENT_TIMEOUT_MS);
+            const response = await fetch(`/templates/generateMessage?_id1=<%= _id1 %>&_id2=<%= _id2 %>`);
             if (response.ok) {
                 // Get the message from the response
                 const message = await response.text();
@@ -21,13 +13,10 @@
             } else {
                 console.error('Error:', response.status, response.statusText);
             }
-
-            clearTimeout(timeoutId); // Clear the timeout if the response arrives within the timeout period
         } catch (error) {
             console.error('Error:', error);
         }
     }
-
     // Automatically trigger the message generation when the page loads
     window.addEventListener('load', generateMessage);
 </script>
