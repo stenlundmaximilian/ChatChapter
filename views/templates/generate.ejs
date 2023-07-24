@@ -1,5 +1,5 @@
 
-<pre id="message"></pre>
+<div id="paragraphs" class="paragraphs"></pre>
 <script>
     async function generateMessage() {
         try {
@@ -7,9 +7,21 @@
             const response = await fetch(`/templates/generateMessage?_id1=<%= _id1 %>&_id2=<%= _id2 %>`);
             if (response.ok) {
                 // Get the message from the response
-                const message = await response.text();
-                // Display the message on the page
-                document.getElementById('message').textContent = message;
+                const paragraphs = await response.json();
+                // Create a document fragment to hold the paragraphs
+                const fragment = document.createDocumentFragment();
+                // Create <p> elements for each paragraph and append them to the fragment
+                paragraphs.forEach(paragraph => {
+                    const pElement = document.createElement('p');
+                    pElement.textContent = paragraph;
+                    fragment.appendChild(pElement);
+                });
+                // Get the paragraphs container
+                const paragraphsContainer = document.getElementById("paragraphs");
+                // Clear any existing content
+                paragraphsContainer.innerHTML = "";
+                // Append the document fragment (with all <p> elements) to the container
+                paragraphsContainer.appendChild(fragment);
             } else {
                 console.error('Error:', response.status, response.statusText);
             }

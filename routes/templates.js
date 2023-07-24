@@ -34,11 +34,9 @@ router.get('/generateMessage',checkAuthenticated,async (req,res)=>{
         const _id2 = req.query._id2;
         const character1 = await Character.findById(_id1)
         const character2 = await Character.findById(_id2)
-        const maxLength = 80;
         const message = await fetchData(process.env.API_KEY,character1,character2)
-        const regex = new RegExp(`.{1,${maxLength}}`, 'g');
-        const formatedMessage = message.match(regex).join('\n');
-        res.send(formatedMessage)
+        const paragraphs = message.split("\n").filter(Boolean);
+        res.send(paragraphs)
     } catch(err){
         console.error(err);
     }
