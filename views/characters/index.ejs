@@ -5,7 +5,6 @@
         <th>Trait</th>
         <th>ID</th>
         <th></th>
-        <th></th>
     </tr>
     <% characters.forEach((character) => { %>
         <tr>
@@ -14,19 +13,19 @@
             <td><%= character.trait %></td>
             <td><%= String(character._id).slice(-3) %></td>
             <td>
-                <form action="characters/edit" method="GET">
-                    <input type="hidden" name="name" value="<%= character.name %>">
-                    <input type="hidden" name="hobby" value="<%= character.hobby %>">
-                    <input type="hidden" name="trait" value="<%= character.trait %>">
-                    <input type="hidden" name="_id" value="<%= character._id %>">
-                    <button type="submit">EDIT</button>
-                </form>
+                <div class ="edit">
+                    <form action="characters/edit" method="GET">
+                        <input type="hidden" name="name" value="<%= character.name %>">
+                        <input type="hidden" name="hobby" value="<%= character.hobby %>">
+                        <input type="hidden" name="trait" value="<%= character.trait %>">
+                        <input type="hidden" name="_id" value="<%= character._id %>">
+                        <button type="submit" class="edit-button"></button>
+                    </form>
+                    <form action="characters/<%= character._id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="delete-button"></button>
+                    </form>
+                </div>
             </td> 
-            <td>
-                <form action="characters/<%= character._id %>?_method=DELETE" method="POST">
-                    <button type="submit">DELETE</button>
-                </form>
-            </td>
         </tr>
     <% }); %>
 </table>

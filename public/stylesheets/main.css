@@ -25,5 +25,37 @@
     position: relative;
 }
 
+.delete-button {
+    /* Set the background image using the URL of the image */
+    background-image: url('/images/delete.png');
+    /* Set the width and height to match the dimensions of the image */
+    width: 40px; /* Replace <width-of-image> with the actual width of the image */
+    height: 40px; /* Replace <height-of-image> with the actual height of the image */
+    /* Hide the default border of the button */
+    border: none;
+    background-size: cover;
+    /* Optionally, add some cursor style to indicate it's clickable */
+    cursor: pointer;
+  }
+
+  .edit-button {
+    /* Set the background image using the URL of the image */
+    background-image: url('/images/edit.png');
+    /* Set the width and height to match the dimensions of the image */
+    width: 40px; /* Replace <width-of-image> with the actual width of the image */
+    height: 40px; /* Replace <height-of-image> with the actual height of the image */
+    /* Hide the default border of the button */
+    border: none;
+    background-size: cover;
+    /* Optionally, add some cursor style to indicate it's clickable */
+    cursor: pointer;
+  }
+  
+  .edit form {
+    display: inline-block;
+  }
+  
+  
+
 
 
