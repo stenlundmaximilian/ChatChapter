@@ -4,13 +4,12 @@
     display: inline-block;
   }
   
-  /* Label styles */
-  .dropdown label {
-    font-weight: bold;
-    margin-right: 10px;
-    color: black; /* Primary Orange */
-  }
   
+  .dropdown label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
   /* Dropdown arrow styles */
   .dropdown::after {
     content: '\25BE'; /* Downward-pointing triangle (Unicode for dropdown arrow) */
