@@ -7,15 +7,12 @@
 @import 'shared/button.css';
 @import 'shared/dropdown.css';
 
-:root{
-    font-family: 'Tektur';
-    font-size: 20px;
-}
 
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Cormorant Garamond';
+    font-size: 20px;
 }
 
 .view{
@@ -40,22 +37,27 @@
     cursor: pointer;
   }
 
-  .edit-button {
-    /* Set the background image using the URL of the image */
-    background-image: url('/images/edit.png');
-    /* Set the width and height to match the dimensions of the image */
-    width: 40px; /* Replace <width-of-image> with the actual width of the image */
-    height: 40px; /* Replace <height-of-image> with the actual height of the image */
-    /* Hide the default border of the button */
-    border: none;
-    background-size: cover;
-    /* Optionally, add some cursor style to indicate it's clickable */
-    cursor: pointer;
-  }
-  
-  .edit form {
-    display: inline-block;
-  }
+.edit-button {
+  /* Set the background image using the URL of the image */
+  background-image: url('/images/edit.png');
+  /* Set the width and height to match the dimensions of the image */
+  width: 40px; /* Replace <width-of-image> with the actual width of the image */
+  height: 40px; /* Replace <height-of-image> with the actual height of the image */
+  /* Hide the default border of the button */
+  border: none;
+  background-size: cover;
+  /* Optionally, add some cursor style to indicate it's clickable */
+  cursor: pointer;
+}
+
+.edit form {
+  display: inline-block;
+}
+
+p {
+  margin-bottom: 1em; /* or any other desired value */
+}
+
   
   
 
