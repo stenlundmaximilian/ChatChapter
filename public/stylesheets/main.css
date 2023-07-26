@@ -4,6 +4,8 @@
 @import 'shared/table.css';
 @import 'shared/paragraphs.css';
 @import 'shared/loader.css';
+@import 'shared/button.css';
+@import 'shared/dropdown.css';
 
 :root{
     font-family: 'Tektur';

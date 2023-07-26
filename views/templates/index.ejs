@@ -1,7 +1,7 @@
 <div class = "text-box">
     <form action = "/templates/generate/" method = "GET">
         <h1>Pirate Adventure</h1>
-        <div class="character">
+        <div class="dropdown">
             <label for="character1">Character1</label>
             <select name="character1" id="character1">
                 <% characters.forEach((character) => { %>
@@ -9,7 +9,7 @@
                 <% }); %>
             </select>
         </div>
-        <div class="character">
+        <div class="dropdown">
             <label for="character2">Character2</label>
             <select name="character2" id="character2">
                 <% characters.forEach((character) => { %>

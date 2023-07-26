@@ -1,0 +1,68 @@
+/* Dropdown container styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Label styles */
+  .dropdown label {
+    font-weight: bold;
+    margin-right: 10px;
+    color: black; /* Primary Orange */
+  }
+  
+  /* Dropdown arrow styles */
+  .dropdown::after {
+    content: '\25BE'; /* Downward-pointing triangle (Unicode for dropdown arrow) */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    pointer-events: none; /* Prevent the arrow from interfering with the select element */
+    color: #ff7f00; /* Primary Orange */
+  }
+  
+  /* Dropdown select styles */
+  .dropdown select {
+    padding: 10px;
+    border: 2px solid #ff7f00; /* Primary Orange */
+    border-radius: 5px;
+    appearance: none; /* Remove default appearance (for custom styling) */
+    background-color: #fff; /* White background */
+    width: 200px; /* Adjust the width to your preference */
+    font-size: 14px;
+    color: #333; /* Text color */
+    cursor: pointer;
+  }
+  
+  /* Dropdown select on hover */
+  .dropdown select:hover {
+    border-color: #ffaa4c; /* Accent Orange */
+  }
+  
+  /* Dropdown select on focus */
+  .dropdown select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 127, 0, 0.7); /* Primary Orange with some transparency */
+  }
+  
+  /* Dropdown options styles */
+  .dropdown option {
+    font-size: 14px;
+    color: #333; /* Text color */
+  }
+  
+  /* Hide default dropdown arrow in modern browsers */
+  .dropdown select::-ms-expand {
+    display: none;
+  }
+  
+  /* Style the dropdown arrow in Firefox */
+  @-moz-document url-prefix() {
+    .dropdown select {
+      padding-right: 25px; /* Add space for the arrow in Firefox */
+    }
+  }
+  
+  

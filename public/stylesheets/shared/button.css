@@ -1,0 +1,33 @@
+/* Reset default button styles */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #ff7f00; /* Primary Orange */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Add hover effect */
+  button:hover {
+    background-color: #ffaa4c; /* Accent Orange */
+  }
+  
+  /* Add focus effect */
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 127, 0, 0.7); /* Primary Orange with some transparency */
+  }
+  
+  /* Add active effect */
+  button:active {
+    transform: translateY(1px);
+  }
+  
+  /* Button with class "blue" for complementary color */
+  button.blue {
+    background-color: #007bff; /* Complementary Blue */
+  }
+  
+  
