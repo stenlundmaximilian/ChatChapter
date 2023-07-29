@@ -1,9 +1,16 @@
+.stableDiffusion{
+    position: relative;
+    top: 20vh;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 60%;
+}
+
 .paragraphs{
     position: relative;
     top: 20vh;
     left: 50%;
     transform: translate(-50%,0);
-    border-collapse: collapse;
     width: 50%;
     background-color: white;
     padding: 5%;

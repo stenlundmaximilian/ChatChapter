@@ -4,6 +4,7 @@ const Character = require('../models/character')
 
 const checkAuthenticated = require('../models/checkAuthentication').checkAuthenticated
 const fetchData = require('../models/chatGPT')
+const stableDiffusionData = require('../models/stableDiffusion')
 
 router.get('/',checkAuthenticated,async(req,res)=>{
     try{
@@ -20,11 +21,13 @@ router.get('/',checkAuthenticated,async(req,res)=>{
 router.get('/generate',checkAuthenticated,async(req,res)=>{
     const _id1 = req.query.character1
     const _id2 = req.query.character2
+    imageURL = await stableDiffusionData(process.env.STABLE_DIFFUSION_API_KEY)
+    console.log(imageURL)
     res.render('templates/generate',{
         headerLinks:[],
         _id1:_id1,
-        _id2:_id2
-        
+        _id2:_id2,
+        imageURL:imageURL 
     })
 })
 

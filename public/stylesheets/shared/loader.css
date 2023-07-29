@@ -8,11 +8,13 @@
     justify-content: center;
     align-items: center;
     transition: opacity 0.75s, visibility 0.75s;    
+    z-index: 9999;
 }
 
 .loader-hidden{
     opacity: 0;
     visibility: hidden;
+    z-index: 9999;
 }
 
 .loader::after{
@@ -23,6 +25,7 @@
     border-top-color: black;
     border-radius: 50%;
     animation: loading 0.75s ease infinite;
+    z-index: 9999;
 }
 
 @keyframes loading{
