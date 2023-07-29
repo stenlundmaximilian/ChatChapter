@@ -1,5 +1,5 @@
 
-async function fetchData(API_KEY,character1,character2){
+async function fetchData(API_KEY,character1,character2,title){
     const response = await fetch("https://api.openai.com/v1/chat/completions",{
         method: "POST",
         headers: {
@@ -13,7 +13,7 @@ async function fetchData(API_KEY,character1,character2){
                 {"role":"system", "content":"Generate short stories with the given information"},
                 {
                     "role":"user",
-                    "content":`title:pirate adventure,\n
+                    "content":`title:${title},\n
                                 character1:{name:${character1.name}, hobby:${character1.hobby}, trait:${character1.trait}},\n
                                 character2:{name:${character2.name}, hobby:${character2.hobby}, trait:${character2.trait}}`
                 }

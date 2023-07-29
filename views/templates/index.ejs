@@ -1,6 +1,15 @@
+<div class="side-menu">
+    <div class="menu-links">
+        <ul id="menu-list">
+            <li><a href="#" onclick="updateHeadingOnClick(event)">Pirate Adventure</a></li>
+            <li><a href="#" onclick="updateHeadingOnClick(event)">Space Travel</a></li>
+            <li><a href="#" onclick="updateHeadingOnClick(event)">Cowboy Rodeo</a></li>
+        </ul>
+    </div>
+</div>
 <div class = "text-box">
     <form action = "/templates/generate/" method = "GET">
-        <h1>Pirate Adventure</h1>
+        <input type="hidden" name="title" id="title-input" value="Pirate Adventure">        <h1>Pirate Adventure</h1>
         <div class="dropdown">
             <label for="character1">Character1</label>
             <select name="character1" id="character1">
@@ -18,5 +27,22 @@
             </select>
         </div>
         <button type = "submit">Generate</button>
-    </div>
 </div>
+
+<script>
+    function updateHeadingOnClick(event) {
+        // Prevent the default link behavior
+        event.preventDefault();
+
+        // Get the clicked link's text
+        const text = event.target.innerText;
+
+        // Get the <h1> element
+        const headingElement = document.querySelector('h1');
+        const titleInput = document.getElementById('title-input');
+        titleInput.value = text;
+
+        // Update the heading text with the text from the clicked link
+        headingElement.innerText = text;
+    }
+</script>

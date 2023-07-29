@@ -4,7 +4,7 @@
     async function generateMessage() {
         try {
             // Make an AJAX request to the server
-            const response = await fetch(`/templates/generateMessage?_id1=<%= _id1 %>&_id2=<%= _id2 %>`)
+            const response = await fetch(`/templates/generateMessage?_id1=<%= _id1 %>&_id2=<%= _id2 %>&title=<%=title%>`)
             const loader = document.querySelector(".loader")
             loader.classList.add("loader-hidden")
             loader.addEventListener("transitionend",()=>{

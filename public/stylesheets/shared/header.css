@@ -1,11 +1,11 @@
-nav{
+.header{
     display: flex;
     padding: 2% 6%;
     justify-content: space-between;
     background-color: white;
 }
 
-nav img{
+.header img{
     width: 50px;
     border: 2px solid black;
 }

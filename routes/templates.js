@@ -21,13 +21,16 @@ router.get('/',checkAuthenticated,async(req,res)=>{
 router.get('/generate',checkAuthenticated,async(req,res)=>{
     const _id1 = req.query.character1
     const _id2 = req.query.character2
+    const title = req.query.title
+    console.log(title)
     imageURL = await stableDiffusionData(process.env.STABLE_DIFFUSION_API_KEY)
     console.log(imageURL)
     res.render('templates/generate',{
         headerLinks:[],
         _id1:_id1,
         _id2:_id2,
-        imageURL:imageURL 
+        imageURL:imageURL,
+        title:title
     })
 })
 
@@ -35,9 +38,10 @@ router.get('/generateMessage',checkAuthenticated,async (req,res)=>{
     try{
         const _id1 = req.query._id1;
         const _id2 = req.query._id2;
+        const title = req.query.title;
         const character1 = await Character.findById(_id1)
         const character2 = await Character.findById(_id2)
-        const message = await fetchData(process.env.API_KEY,character1,character2)
+        const message = await fetchData(process.env.API_KEY,character1,character2,title)
         const paragraphs = message.split("\n").filter(Boolean);
         res.send(paragraphs)
     } catch(err){
