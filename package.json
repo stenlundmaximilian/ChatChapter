@@ -22,7 +22,8 @@
     "method-override": "^3.0.0",
     "mongoose": "^7.3.4",
     "passport": "^0.6.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "replicate": "^0.14.0"
   },
   "devDependencies": {
     "dotenv": "^16.3.1",

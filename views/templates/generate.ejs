@@ -1,15 +1,32 @@
 <div class = "loader"></div>
-<img src="<%= imageURL %>" alt="Generated Image" class="stableDiffusion">
 <script>
     async function generateMessage() {
         try {
+            const responseImage = await fetch(`/templates/generateImage?_id1=<%= _id1 %>&_id2=<%= _id2 %>&title=<%=title%>`)
+            if(responseImage.ok){
+                const imageURL = await responseImage.text()
+                const imgElement = document.createElement("img");
+
+                // Step 2: Set attributes for the <img> element
+                imgElement.src = imageURL;
+                imgElement.alt = "Generated Image";
+                imgElement.className = "stableDiffusion";
+
+                // Get the container where you want to add the paragraphs div
+                const container = document.getElementById("view"); // Replace "container" with the actual ID of the desired container
+
+                // Append the paragraphs div to the container
+                container.appendChild(imgElement);
+            } else {
+                console.error('Error:', response.status, response.statusText);
+            }
             // Make an AJAX request to the server
             const response = await fetch(`/templates/generateMessage?_id1=<%= _id1 %>&_id2=<%= _id2 %>&title=<%=title%>`)
             const loader = document.querySelector(".loader")
             loader.classList.add("loader-hidden")
             loader.addEventListener("transitionend",()=>{
                 document.body.removeChild("loader")
-            })
+            }) 
             if (response.ok) {
                 // Get the message from the response
                 const paragraphs = await response.json();

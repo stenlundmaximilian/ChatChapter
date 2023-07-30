@@ -31,7 +31,7 @@ function initialize(passport, getUserByEmail,getUserById){
             try {
               const user = await getUserById(id);
               if (user) {
-                console.log('User found:', user);
+                //console.log('User found:', user);
                 return done(null,user)
               } else {
                 console.log('User not found.');

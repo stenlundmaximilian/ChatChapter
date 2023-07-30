@@ -1,4 +1,4 @@
-async function stableDiffusionData(API_KEY){
+async function stableDiffusionData1(API_KEY){
     try {
         // Your API request code
         var myHeaders = new Headers();
@@ -35,7 +35,6 @@ async function stableDiffusionData(API_KEY){
         const result = await response.json();
         if (result.status === 'success' && result.output && result.output.length > 0) {
             // Extract the generated image URL from the response
-            console.log(result.output[0])
             return imageUrl = result.output[0];
         }
         else{
@@ -48,4 +47,34 @@ async function stableDiffusionData(API_KEY){
     }
 }
 
-module.exports = stableDiffusionData
+// Import Replicate
+const Replicate = require('replicate');
+const replicate = new Replicate({
+  auth: process.env.REPLICATE_API_TOKEN,
+});
+
+async function stableDiffusionData2(text) {
+    try {
+        console.log(text)
+        const output = await replicate.run(
+            "stability-ai/stable-diffusion:ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4",
+            {
+                input: {
+                    prompt: text,
+                    width: 1024,
+                    height: 512,
+                    num_outputs:1,
+                    guidance_scale: 7.5,
+                    num_inference_steps: 50,
+                    prompt_strength: 0.8
+                }
+            }
+        );
+        return output[0]
+    } catch (error) {
+        console.error('Error running Replicate:', error);
+    }
+  }
+
+module.exports.stableDiffusionData1 = stableDiffusionData1
+module.exports.stableDiffusionData2 = stableDiffusionData2
