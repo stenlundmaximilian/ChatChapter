@@ -49,7 +49,7 @@ router.get('/generateMessage',checkAuthenticated,async (req,res)=>{
 const imagePrompts = {
     "Pirate Adventure":"Digital art pirate ship flag skull",
     "Space Travel":"Digital art rocket ship in space",
-    "Cowboy Rodeo":"Digital art dusty town, gun and cowboy hat"                   
+    "Cowboy Rodeo":"Digital art cowboy town"                   
 }
 router.get('/generateImage',checkAuthenticated,async (req,res)=>{
     try{
