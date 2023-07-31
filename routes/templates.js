@@ -49,7 +49,18 @@ router.get('/generateMessage',checkAuthenticated,async (req,res)=>{
 const imagePrompts = {
     "Pirate Adventure":"Digital art pirate ship harbor",
     "Space Travel":"Digital art space travel",
-    "Cowboy Rodeo":"Digital art cowboy town"                   
+    "Cowboy Rodeo":"Digital art cowboy town",
+    "Deep Sea Exploration":"Digital art deep sea exploration",
+    "Enchanted Forest": "Digital art mystical forest realm",
+    "Time Travelers": "Digital art time-traveling adventurers",
+    "Steampunk Airship": "Digital art steampunk airship city",
+    "Underground Caves": "Digital art mysterious underground caves",
+    "Mythical Creatures": "Digital art epic mythical creature showdown",
+    "Wild West Duel": "Digital art intense Wild West dueling",
+    "Robotic Rebellion": "Digital art futuristic robotic uprising",
+    "Ancient Ruins": "Digital art ancient civilization ruins",
+    "Magical Academy": "Digital art enchanted magical academy",
+    "Alien Encounter": "Digital art thrilling alien encounter"          
 }
 router.get('/generateImage',checkAuthenticated,async (req,res)=>{
     try{
