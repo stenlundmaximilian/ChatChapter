@@ -15,3 +15,12 @@
     background-color: white;
     padding: 5%;
 }
+.save-story{
+    position: relative;
+    top: 20vh;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 50%;
+    background-color: white;
+    padding: 5%;
+}

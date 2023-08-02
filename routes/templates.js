@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Character = require('../models/character')
+const Story = require('../models/story')
 
 const checkAuthenticated = require('../models/checkAuthentication').checkAuthenticated
 const fetchData = require('../models/chatGPT')
@@ -10,7 +11,9 @@ router.get('/',checkAuthenticated,async(req,res)=>{
     try{
         const characters = await Character.find({createdBy:req.user._id})
         res.render('templates/index',{
-            headerLinks:[],
+            headerLinks:[
+                {file:"/",text:"HOME"}
+            ],
             characters:characters
         })
     } catch(err){
@@ -23,7 +26,9 @@ router.get('/generate',checkAuthenticated,async(req,res)=>{
     const _id2 = req.query.character2
     const title = req.query.title
     res.render('templates/generate',{
-        headerLinks:[],
+        headerLinks:[
+            {file:"/",text:"HOME"},
+        ],
         _id1:_id1,
         _id2:_id2,
         title:title
@@ -77,6 +82,24 @@ router.get('/generateImage',checkAuthenticated,async (req,res)=>{
         console.error(err);
     }
 })
+
+router.post('/stories', checkAuthenticated, async (req, res) => {
+    try {
+      const story = JSON.parse(req.body.story);
+      const title = req.body.title; // Get the title from the request
+      const storyObject = new Story({
+        title: title,
+        story: story,
+        createdBy: req.user._id
+      });
+      const newStory = await storyObject.save();
+      res.redirect('/stories');
+    } catch (error) {
+      console.error(`Error while saving story with title '${title}':`, error);
+      res.redirect('/templates');
+    }
+  });
+  
 
 module.exports = router
 

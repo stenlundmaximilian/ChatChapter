@@ -8,8 +8,10 @@ router.get('/',checkAuthenticated,async(req,res)=>{
     try{
         const characters = await Character.find({createdBy:req.user._id})
         res.render('characters/index',{
-            headerLinks:[{file:"/characters/new",
-                        text:"CREATE CHARACTER"}],
+            headerLinks:[
+                {file:"/",text:"HOME"},
+                {file:"/characters/new",text:"CREATE CHARACTER"}
+            ],
             characters:characters
         })
     }catch(err){
@@ -19,8 +21,10 @@ router.get('/',checkAuthenticated,async(req,res)=>{
 
 router.get('/new',checkAuthenticated,(req,res)=>{
     res.render('characters/new',{
-        headerLinks:[{file:"/characters",
-        text:"CHARACTER"}]
+        headerLinks:[
+            {file:"/",text:"HOME"},
+            {file:"/characters",text:"CHARACTER"}
+        ]
     })
 })
 
@@ -28,8 +32,10 @@ router.get('/edit',checkAuthenticated,(req,res)=>{
     // Retrieve the data from the query parameters
     const { name, hobby, trait, _id } = req.query
     res.render('characters/edit',{
-        headerLinks:[{file:"/characters",
-                    text:"CHARACTER"}],
+        headerLinks:[
+            {file:"/",text:"HOME"},
+            {file:"/characters", text:"CHARACTER"}
+        ],
         character:  {
             name:name,
             hobby:hobby,

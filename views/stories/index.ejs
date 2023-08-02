@@ -1,0 +1,23 @@
+<table>
+    <tr id="table-top">
+        <th>Title</th>
+        <th></th>
+    </tr>
+    <% stories.forEach((story) => { %>
+        <tr>
+            <td><%= story.title %></td>
+            <td>
+                <div class ="edit">
+                    <form action="stories/edit" method="GET">
+                        <input type="hidden" name="title" value="<%= story.title %>">
+                        <input type="hidden" name="story" value="<%= JSON.stringify(story.story) %>">
+                        <button type="submit" class="edit-button"></button>
+                    </form>
+                    <form action="stories/<%= story._id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="delete-button"></button>
+                    </form>
+                </div>
+            </td> 
+        </tr>
+    <% }); %>
+</table>

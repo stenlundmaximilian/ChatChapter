@@ -50,6 +50,33 @@
 
                 // Append the paragraphs div to the container
                 container.appendChild(paragraphsDiv);
+
+                // Create the form element
+                const form = document.createElement('form');
+                form.classList.add('save-story');
+                form.action = '/templates/stories';
+                form.method = 'POST';
+
+                // Create the hidden input field for 'story'
+                const storyInput = document.createElement('input');
+                storyInput.type = 'hidden';
+                storyInput.name = 'story';
+                storyInput.value = JSON.stringify(paragraphs);
+                form.appendChild(storyInput);
+
+                // Create the input field for 'title'
+                const titleInput = document.createElement('input');
+                titleInput.type = 'text';
+                titleInput.name = 'title';
+                form.appendChild(titleInput);
+
+                // Create the submit button
+                const submitButton = document.createElement('button');
+                submitButton.type = 'submit';
+                submitButton.textContent = 'Save';
+                form.appendChild(submitButton);
+                container.appendChild(form);
+
             } else {
                 console.error('Error:', response.status, response.statusText);
             }

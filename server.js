@@ -19,6 +19,7 @@ const templateRouter = require('./routes/templates')
 const loginRouter = require('./routes/login')
 const registerRouter = require('./routes/register')
 const logoutRouter = require('./routes/logout')
+const storiesRouter = require('./routes/stories')
 
 //import function to initialize passport
 const initializePassport = require('./models/passportConfig')
@@ -80,6 +81,7 @@ app.use('/templates',templateRouter)
 app.use('/login',loginRouter(passport))
 app.use('/register',registerRouter)
 app.use('/logout',logoutRouter)
+app.use('/stories',storiesRouter)
 
 //mongoose database
 mongoose.connect(process.env.DATABASE_URL,{
