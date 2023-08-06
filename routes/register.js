@@ -4,7 +4,7 @@ const User = require('../models/user')
 
 const router = express.Router()
 
-const checkNotAuthenticated = require('../models/checkAuthentication').checkNotAuthenticated
+const checkNotAuthenticated = require('../utils/checkAuthentication').checkNotAuthenticated
 
 router.get('/',checkNotAuthenticated,(req,res)=>{
   res.render('register/index',{headerLinks:[]})

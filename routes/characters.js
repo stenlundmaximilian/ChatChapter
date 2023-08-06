@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Character = require('../models/character')
 
-const checkAuthenticated = require('../models/checkAuthentication').checkAuthenticated
+const checkAuthenticated = require('../utils/checkAuthentication').checkAuthenticated
 
 router.get('/',checkAuthenticated,async(req,res)=>{
     try{

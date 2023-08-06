@@ -3,9 +3,9 @@ const router = express.Router()
 const Character = require('../models/character')
 const Story = require('../models/story')
 
-const checkAuthenticated = require('../models/checkAuthentication').checkAuthenticated
-const fetchData = require('../models/chatGPT')
-const stableDiffusionData = require('../models/stableDiffusion').stableDiffusionData2
+const checkAuthenticated = require('../utils/checkAuthentication').checkAuthenticated
+const fetchData = require('../utils/chatGPT')
+const stableDiffusionData = require('../utils/stableDiffusion').stableDiffusionData2
 
 router.get('/',checkAuthenticated,async(req,res)=>{
     try{

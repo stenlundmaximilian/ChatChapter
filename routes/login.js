@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const checkNotAuthenticated = require('../models/checkAuthentication').checkNotAuthenticated
+const checkNotAuthenticated = require('../utils/checkAuthentication').checkNotAuthenticated
 
 module.exports = (passport) => {
     router.get('/',checkNotAuthenticated, (req, res) => {

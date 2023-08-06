@@ -22,7 +22,7 @@ const logoutRouter = require('./routes/logout')
 const storiesRouter = require('./routes/stories')
 
 //import function to initialize passport
-const initializePassport = require('./models/passportConfig')
+const initializePassport = require('./utils/passportConfig')
 
 //initialize passport
 async function getUserByEmail(email) {

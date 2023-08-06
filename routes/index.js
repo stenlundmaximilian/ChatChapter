@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const checkAuthenticated = require('../models/checkAuthentication').checkAuthenticated
+const checkAuthenticated = require('../utils/checkAuthentication').checkAuthenticated
 
 
 const headerLinks = [
