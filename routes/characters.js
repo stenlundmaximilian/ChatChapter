@@ -10,7 +10,6 @@ router.get('/',checkAuthenticated,async(req,res)=>{
         res.render('characters/index',{
             headerLinks:[
                 {file:"/",text:"HOME"},
-                {file:"/characters/new",text:"CREATE CHARACTER"}
             ],
             characters:characters
         })

@@ -1,29 +1,39 @@
 /* Sidebar container */
 .side-menu {
-    height: 1000px;
-    width: 250px; /* Set the width of the sidebar */
-    background-color: white; /* Sidebar background color */
-    padding: 20px;
-  }
+  height: 1000px;
+  width: 250px; /* Set the width of the sidebar */
+  background-color: white; /* Sidebar background color */
+  padding: 20px;
+}
   
-  /* List item styles */
-  .side-menu ul {
-    list-style-type: none; /* Remove bullet points from the list */
-    padding: 0;
-    margin: 0;
-  }
-  
-  .side-menu li {
-    margin-bottom: 10px; /* Add some space between list items */
-  }
-  
-  /* Link styles */
-  .side-menu a {
-    color: #333; /* Link text color */
-    text-decoration: none; /* Remove underline from links */
-  }
-  
-  .side-menu a:hover {
-    text-decoration: underline; /* Underline links on hover */
-  }
-  
+/* List item styles */
+.side-menu ul {
+  list-style-type: none; /* Remove bullet points from the list */
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu li {
+  margin-bottom: 10px; /* Add some space between list items */
+}
+
+/* Link styles */
+.side-menu a {
+  color:black;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: black;
+    display: block;
+    margin: auto;
+}
+
+.side-menu li:hover::after{
+    width: 100%;
+    transition: 1s;
+}
