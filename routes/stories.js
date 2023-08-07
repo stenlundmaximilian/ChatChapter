@@ -37,4 +37,15 @@ router.get('/edit',checkAuthenticated,(req,res)=>{
     })
 })
 
+router.delete('/:id',async (req,res)=>{
+    try{
+        const storyIdToDelete = req.params.id
+        await Story.deleteOne({_id:storyIdToDelete})
+        res.redirect('/stories')
+    }
+    catch(error){
+        res.status(500).send('Error deleting character')
+    }
+})
+
 module.exports = router
