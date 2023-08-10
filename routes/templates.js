@@ -75,7 +75,6 @@ router.get('/generateImage',checkAuthenticated,async (req,res)=>{
         //const character1 = await Character.findById(_id1)
         //const character2 = await Character.findById(_id2)
         const prompt = imagePrompts[title]
-        console.log(prompt)
         const imageURL = await stableDiffusionData(prompt)
         res.send(imageURL)
     } catch(err){
@@ -87,9 +86,11 @@ router.post('/stories', checkAuthenticated, async (req, res) => {
     try {
       const story = JSON.parse(req.body.story);
       const title = req.body.title; // Get the title from the request
+      const imageURL = req.body.imageURL;
       const storyObject = new Story({
         title: title,
         story: story,
+        imageURL: imageURL,
         createdBy: req.user._id
       });
       const newStory = await storyObject.save();

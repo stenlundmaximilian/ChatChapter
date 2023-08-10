@@ -11,6 +11,7 @@
                     <form action="stories/edit" method="GET">
                         <input type="hidden" name="title" value="<%= story.title %>">
                         <input type="hidden" name="story" value="<%= JSON.stringify(story.story) %>">
+                        <input type="hidden" name="imageURL" value="<%= story.imageURL %>"> 
                         <button type="submit" class="edit-button"></button>
                     </form>
                     <form action="stories/<%= story._id %>?_method=DELETE" method="POST">

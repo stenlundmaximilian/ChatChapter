@@ -22,18 +22,18 @@ router.get('/edit',checkAuthenticated,(req,res)=>{
     // Retrieve the data from the query parameters
     // Access the 'title' value
     const title = req.query.title;
-    console.log(req.query.title);
 
     // Access the 'story' value as a JSON string and parse it back into an object
     const storyJSON = req.query.story;
     const story = JSON.parse(storyJSON);
-
+    const imageURL = req.query.imageURL;
     res.render('stories/edit',{
         headerLinks:[
             {file:"/",text:"HOME"}
         ],
         title:title,
-        story:story
+        story:story,
+        imageURL:imageURL
     })
 })
 

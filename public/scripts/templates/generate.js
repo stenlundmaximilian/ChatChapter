@@ -56,7 +56,7 @@ function createParagraphsElement(paragraphs) {
     return paragraphsDiv;
 }
 
-function createFormElement(paragraphs) {
+function createFormElement(paragraphs,imageURL) {
     const form = document.createElement('form');
     form.classList.add('save-story');
     form.action = '/templates/stories';
@@ -67,6 +67,12 @@ function createFormElement(paragraphs) {
     storyInput.name = 'story';
     storyInput.value = JSON.stringify(paragraphs);
     form.appendChild(storyInput);
+
+    const imageURLInput = document.createElement('input');
+    imageURLInput.type = 'hidden';
+    imageURLInput.name = 'imageURL'; // Set the appropriate name
+    imageURLInput.value = imageURL; // Set the received image URL
+    form.appendChild(imageURLInput);
 
     const titleInput = document.createElement('input');
     titleInput.type = 'text';
@@ -97,7 +103,7 @@ async function generateMessage() {
             const container = document.getElementById("view"); // Replace "view" with the actual ID of the desired container
             container.appendChild(paragraphsDiv);
 
-            const form = createFormElement(paragraphs);
+            const form = createFormElement(paragraphs,imageURL);
             container.appendChild(form);
         }
 

@@ -6,6 +6,9 @@ const storySchema = new mongoose.Schema({
     story: {
         type: [String]
     },
+    imageURL:{
+        type:String
+    },
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
