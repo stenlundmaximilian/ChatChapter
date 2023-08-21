@@ -7,6 +7,7 @@
 @import 'shared/button.css';
 @import 'shared/dropdown.css';
 @import 'shared/sideMenu.css';
+@import 'shared/skeleton.css';
 
 
 *{
@@ -19,7 +20,7 @@
 .view{
     min-height: 100vh;
     width: 100%;
-    background-image: url(/images/orange_chess.jpeg);
+    background-image: url(/images/galaxy.jpg);
     background-position: center;
     background-size: cover;
     position: relative;

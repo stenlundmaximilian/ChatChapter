@@ -94,13 +94,21 @@ async function generateMessage() {
         if (imageURL) {
             const imgElement = createImageElement(imageURL);
             const container = document.getElementById("view"); // Replace "view" with the actual ID of the desired container
-            container.appendChild(imgElement);
+            const paragraphsContainer = document.querySelector('.paragraphs');
+            container.insertBefore(imgElement,paragraphsContainer);
         }
 
         const paragraphs = await fetchParagraphs();
         if (paragraphs) {
             const paragraphsDiv = createParagraphsElement(paragraphs);
             const container = document.getElementById("view"); // Replace "view" with the actual ID of the desired container
+
+            //remove skeleton loader
+            const paragraphsContainer = document.querySelector('.paragraphs');
+            if (container && paragraphsContainer) {
+                container.removeChild(paragraphsContainer);
+            }
+
             container.appendChild(paragraphsDiv);
 
             const form = createFormElement(paragraphs,imageURL);
