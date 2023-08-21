@@ -27,15 +27,29 @@ router.get('/edit',checkAuthenticated,(req,res)=>{
     const storyJSON = req.query.story;
     const story = JSON.parse(storyJSON);
     const imageURL = req.query.imageURL;
+    const id = req.query.id
     res.render('stories/edit',{
         headerLinks:[
             {file:"/",text:"HOME"}
         ],
         title:title,
         story:story,
-        imageURL:imageURL
+        imageURL:imageURL,
+        id:id
     })
 })
+
+router.post('/edit', checkAuthenticated, async (req, res) => {
+    try{
+        const title = req.body.title
+        const id = req.body.id
+        const updatedStory = await Story.findByIdAndUpdate(id, {title}, { new: true });
+        res.redirect('/stories')
+    }
+    catch(error){
+        res.status(500).send('Error editing character')
+    }
+});
 
 router.delete('/:id',async (req,res)=>{
     try{
