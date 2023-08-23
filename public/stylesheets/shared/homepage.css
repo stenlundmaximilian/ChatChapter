@@ -1,0 +1,39 @@
+.homepage-introduction {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    text-align: center;
+  }
+
+.homepage-introduction h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.homepage-introduction p {
+    font-size: 25px;
+    line-height: 1.5;
+}
+  
+  /*
+  .text-box h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .text-box label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .text-box input {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  */

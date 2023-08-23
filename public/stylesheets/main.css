@@ -8,7 +8,9 @@
 @import 'shared/dropdown.css';
 @import 'shared/sideMenu.css';
 @import 'shared/skeleton.css';
-
+@import 'shared/homepage.css';
+@import 'shared/basic-header.css';
+@import 'shared/fade-in.css';
 
 *{
     margin: 0;

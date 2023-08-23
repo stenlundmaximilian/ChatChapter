@@ -1,4 +1,5 @@
 <div class="side-menu">
+    <h2>Select a story</h2>
     <div class="menu-links">
         <ul id="menu-list">
             <li><a href="#" onclick="updateHeadingOnClick(event)">Pirate Adventure</a></li>
@@ -20,7 +21,11 @@
 </div>
 <div class = "text-box">
     <form action = "/templates/generate/" method = "GET">
-        <input type="hidden" name="title" id="title-input" value="Pirate Adventure">        <h1>Pirate Adventure</h1>
+        <h1 class = "fade-in">Pirate Adventure</h1>
+        <input type="hidden" name="title" id="title-input" value="Pirate Adventure">      
+        <% if(characters.length === 0){ %>
+            <p>No characters found. <a href="/characters">Add a new character</a></p>
+        <% }else{ %>  
         <div class="dropdown">
             <label for="character1">Character1</label>
             <select name="character1" id="character1">
@@ -38,6 +43,8 @@
             </select>
         </div>
         <button type = "submit">Generate</button>
+        <%}%>
+    </form>
 </div>
 
 <script src="/scripts/templates/index.js"></script>

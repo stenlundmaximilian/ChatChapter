@@ -8,8 +8,21 @@ function updateHeadingOnClick(event) {
     // Get the <h1> element
     const headingElement = document.querySelector('h1');
     const titleInput = document.getElementById('title-input');
-    titleInput.value = text;
 
-    // Update the heading text with the text from the clicked link
-    headingElement.innerText = text;
+    // Fade out the heading
+    headingElement.style.opacity = 0;
+
+    // Wait for the fade-out animation to complete
+    setTimeout(() => {
+        // Update the heading text with the text from the clicked link
+        headingElement.innerText = text;
+        titleInput.value = text;
+
+        // Trigger the fade-in animation
+        headingElement.style.opacity = 1;
+    }, 500); // Set this timeout to match the transition duration
+
 }
+
+
+
