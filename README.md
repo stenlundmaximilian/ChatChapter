@@ -1,3 +1,2 @@
 # ChatChapter
-Create your own stories with your own custom characters using AI. 
-This is code for a website using node.js and express on the backend. The stories are created by using the openai api and the images to the stories are created by using stable diffusion.
+This code is for a website that makes it easier to create short stories using Chat GPTs API. The website works by creating prompts automatically by having parts of the prompt predefined and by creating parts of the prompts from characters and environments created by the user which are stored in a database using MongoDB. By combining different characters and environments from the database there are endless possibilities for creating different short stories easily. The website also automatically creates images for the stories from the prompts by using a stable diffusion API. 
